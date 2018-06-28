@@ -138,8 +138,8 @@ PRIMARY KEY (`emp_no`,`from_date`));
 2. SELECT DISTINCT salary FROM salaries WHERE to_date = '9999-01-01' ORDER BY salary DESC
 
 对于distinct,groupby的性能。
-在不同记录数较小时，count group by性能普遍高于count distinct，尤其对于text类型表现的更明显。
-而对于不同记录数较大的场景，count group by性能反而低于直接count distinct。
+在不同记录数较小(重复量较大)时，count group by性能普遍高于count distinct，尤其对于text类型表现的更明显。
+而对于不同记录数较大（重复量较小）的场景，count group by性能反而低于直接count distinct。
 
 
 
