@@ -1,1 +1,35 @@
 合计函数 (比如 SUM) 常常需要添加 GROUP BY 语句。
+Orders表：
+O_Id	OrderDate	OrderPrice	Customer
+1	2008/12/29	1000	Bush
+2	2008/11/23	1600	Carter
+3	2008/10/05	700	Bush
+4	2008/09/28	300	Bush
+5	2008/08/06	2000	Adams
+6	2008/07/21	100	Carter
+
+
+SELECT Customer,SUM(OrderPrice) FROM Orders
+GROUP BY Customer
+得到下表
+
+Customer	SUM(OrderPrice)
+Bush	2000
+Carter	1700
+Adams	2000
+
+省略 GROUP BY 会出现什么情况：
+SELECT Customer,SUM(OrderPrice) FROM Orders
+得到下表：
+
+Customer	SUM(OrderPrice)
+Bush	5700
+Carter	5700
+Bush	5700
+Bush	5700
+Adams	5700
+Carter	5700
+
+解释如下：上面的 SELECT 语句指定了两列（Customer 和 SUM(OrderPrice)）。
+"SUM(OrderPrice)" 返回一个单独的值（"OrderPrice" 列的总计）
+，而 "Customer" 返回 6 个值（每个值对应 "Orders" 表中的每一行）
