@@ -69,3 +69,12 @@ CREATE TABLE `employees` (
 `hire_date` date NOT NULL,
 PRIMARY KEY (`emp_no`));
 
+SELECT ep.last_name, ep.first_name, dp.dept_no 
+FROM employees ep 
+LEFT JOIN dept_emp dp
+ON ep.emp_no = dp.emp_no
+
+注意：
+INNER JOIN 两边表同时有对应的数据，即任何一边缺失数据就不显示。
+LEFT JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。
+RIGHT JOIN 会读取右边数据表的全部数据，即便左边表无对应数据。
