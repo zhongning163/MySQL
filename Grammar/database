@@ -1,0 +1,4 @@
+DataBase是按照数据结构来组织、存储和管理数据的仓库
+show databases； /*显示所有数据库*/
+create database 数据库名； /*创建数据库*/
+show databases； /*显示所有数据库*/
